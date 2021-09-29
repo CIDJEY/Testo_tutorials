@@ -148,6 +148,7 @@ test libre_office_demo: libre_office_launch {
 			column_index = find_text().match('G').from_right(0).center()
 
 			result = {x: column_index.x, y: row_index.y}
+			return result
 		"""
 
 		wait "G15"

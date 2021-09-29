@@ -12,14 +12,14 @@ test server_prepare: server_install_ubuntu {
 }
 
 macro vifm_select(menu_entry) {
-	if (check js "find_text().match('${menu_entry}').match_background('blue').size() == 1") {
+	if (check js "return find_text().match('${menu_entry}').match_background('blue').size() == 1") {
 		print "Entry ${menu_entry} is already selected"
 		press Enter
 	} else {
 		press g*2
 
 		for (i IN RANGE "0" "50") {
-			if (check js "find_text().match('${menu_entry}').match_background('blue').size() == 1") {
+			if (check js "return find_text().match('${menu_entry}').match_background('blue').size() == 1") {
 				print "Got to entry ${menu_entry} in ${i} steps"
 				press Enter
 				break
